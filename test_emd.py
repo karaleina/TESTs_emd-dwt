@@ -10,7 +10,11 @@ filename_read = "data/breathing/camera/movements/K8.h5"
 
 
 def count_fft(signal, T=0.3):
+
     new_y = signal.ravel()
+    # new_y = np.zeros(3*len(old_y))
+    # new_y[0:len(old_y)] = old_y
+
     # FFT
     N = len(new_y)
     yf = fft(new_y)
@@ -54,8 +58,8 @@ s = s[:] # 0 - 400; 300 - 800; 600:
 plt.figure(20000)
 plt.plot(all)
 
-emd = EMD()
-IMFs = emd.emd(s)
+emd = EEMD()
+IMFs = emd.eemd(s)
 print(IMFs)
 
 plt.figure(20000).clear()
