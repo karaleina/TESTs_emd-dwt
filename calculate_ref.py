@@ -5,9 +5,7 @@ from matplotlib import pyplot as plt
 from scipy.fftpack import fft
 from scipy.signal import argrelextrema
 from filters import filters
-from scipy.signal import resample
 from scipy.signal import freqz
-
 
 
 def count_fft(signal, T=0.01):
@@ -194,7 +192,6 @@ s = np.array(all.ravel())
 print(len(s))
 start = 200
 s = s[start:len(s)-500]
-
 s = discard_the_constant(s, wavelet="db6")
 breathing_signal = filter_100Hz_signal(s, wavelet="db6")
 # additional_zeros = np.zeros(0 * len(breathing_signal))
